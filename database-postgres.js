@@ -17,13 +17,10 @@ export class DatabasePostgres {
   }
 
   async findById(id) {
-    const result = await this.client.query(
-      `SELECT * FROM videos WHERE id = $1`,
-      [id]
-    )
+    const video = await sql`select * from videos where id = ${id}`
 
-    // Retorna apenas o primeiro (e único) resultado
-    return result.rows[0]
+    // Retorna undefined caso não exista
+    return video[0]           
   }
 
   async create(video) {
