@@ -29,6 +29,19 @@ server.get('/videos', async (request) => {
   return videos
 })
 
+// Rota para VISUALIZAR um video específico por ID
+server.get('/videos/:id', async (request, reply) => {
+  const videoId = request.params.id
+
+  const video = await database.findById(videoId)
+
+  if (!video) {
+    return reply.status(404).send({ message: 'Video não encontrado'})
+  }
+
+  return video
+})
+
 // Rota para ATUALIZAÇÃO das informações de vídeos
 server.put('/videos/:id', async (request, reply) => {
   const videoId = request.params.id

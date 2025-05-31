@@ -16,6 +16,16 @@ export class DatabasePostgres {
     return videos
   }
 
+  async findById(id) {
+    const result = await this.client.query(
+      `SELECT * FROM videos WHERE id = $1`,
+      [id]
+    )
+
+    // Retorna apenas o primeiro (e único) resultado
+    return result.rows[0]
+  }
+
   async create(video) {
    const videoId = randomUUID() 
    const { title, description, duration } = video

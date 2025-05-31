@@ -2,7 +2,7 @@ POST https://video-manager-api-dko9.onrender.com/videos
 Content-Type: application/json
 
 {
-  "title": " Video node",
+  "title": " Testando rotas",
   "description": "Esse é o primeiro vídeo",
   "duration": 180 
 }
@@ -10,6 +10,10 @@ Content-Type: application/json
 ###
 
 GET https://video-manager-api-dko9.onrender.com/videos
+
+###
+
+GET https://video-manager-api-dko9.onrender.com/videos/aafbeb66-53a4-4a85-87a9-7584dd5b0df5
 
 ###
 
