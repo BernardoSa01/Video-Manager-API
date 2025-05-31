@@ -1,4 +1,4 @@
-POST http://localhost:3333/videos
+POST https://video-manager-api-dko9.onrender.com/videos
 Content-Type: application/json
 
 {
@@ -9,19 +9,19 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/videos
+GET https://video-manager-api-dko9.onrender.com/videos
 
 ###
 
-PUT http://localhost:3333/videos/57ec9faf-8128-47fa-9c3f-080b1609652e
+PUT https://video-manager-api-dko9.onrender.com/videos/755fc26f-ce17-4fe9-8ebd-f14f8ce406c5
 Content-Type: application/json
 
 {
-  "title": " Video teste",
-  "description": "Esse é o terceiro vídeo",
+  "title": " Teste teste",
+  "description": "Esse é um video teste",
   "duration": 180 
 }
 
 ###
 
-DELETE http://localhost:3333/videos/38bbb573-2073-4437-b3ab-fdead20cae1b
+DELETE https://video-manager-api-dko9.onrender.com/videos/755fc26f-ce17-4fe9-8ebd-f14f8ce406c5
