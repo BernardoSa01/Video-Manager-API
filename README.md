@@ -12,6 +12,7 @@ A aplicação está hospedada no Render:
 
 - **Criar vídeo**: `POST /videos`
 - **Listar vídeos**: `GET /videos`
+- **Buscar vídeo por ID**: `GET /videos/:id`
 - **Atualizar vídeo**: `PUT /videos/:id`
 - **Deletar vídeo**: `DELETE /videos/:id`
 - **Verificar status da API**: `GET /`
