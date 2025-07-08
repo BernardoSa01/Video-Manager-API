@@ -1,12 +1,16 @@
 <h1 align=center> 🎬 Video Manager API</h1>
 
-<p align=center> Uma API RESTful desenvolvida com Node.js, Fastify e PostgreSQL, permitindo operações CRUD para gerenciamento de vídeos. Projeto próprio criado e desenvolvido para aprendizado e prática de conceitos de back end, como criação de rotas, métodos HTTP, interação com banco de dados, e deploy de aplicações.</p>
+<p align=center> Uma API RESTful desenvolvida com Node.js, Fastify e PostgreSQL, permitindo operações CRUD para gerenciamento de vídeos. Projeto próprio criado e desenvolvido para aprendizado e prática de conceitos de back end, como criação de rotas, métodos HTTP, interação com banco de dados, deploy de aplicações e inclusão de documentação com Swagger.</p>
+
+--- 
 
 ## 🚀 Deploy
 
 A aplicação está hospedada no Render:
 
 🔗 [Clique aqui para acessar](https://video-manager-api-dko9.onrender.com)
+
+---
 
 ## 📚 Funcionalidades
 
@@ -17,6 +21,22 @@ A aplicação está hospedada no Render:
 - **Deletar vídeo**: `DELETE /videos/:id`
 - **Verificar status da API**: `GET /`
 
+---
+
+## 📘 Documentação com Swagger
+
+A API conta com documentação interativa utilizando o **Swagger UI**, facilitando testes e visualização dos parâmetros e respostas dos endpoints.
+
+🔗 [Acesse aqui](https://video-manager-api-dko9.onrender.com/docs)
+
+Você poderá:
+
+- Visualizar a estrutura de entrada e saída dos endpoints
+- Executar requisições diretamente pelo navegador
+- Explorar a API de forma prática e rápida
+
+---
+
 ## 📦 Tecnologias Utilizadas
 
 - Node.js
@@ -24,6 +44,9 @@ A aplicação está hospedada no Render:
 - PostgreSQL
 - Render (deploy)
 - Insomnia e `routes.http` para testes
+- Swagger (documentação)
+
+--- 
 
 ## 🛠️ Instalação e Uso Local
 
@@ -56,6 +79,8 @@ A aplicação está hospedada no Render:
 
    A API estará disponível em `http://localhost:3333`.
 
+   --- 
+
 ## 🧪 Testando a API
 
 Você pode testar os endpoints utilizando o arquivo `routes.http` no VSCode ou ferramentas como Insomnia/Postman.
@@ -73,6 +98,8 @@ Content-Type: application/json
 }
 ```
 
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -83,6 +110,8 @@ Video-Manager-API/
 ├── package.json
 └── README.md
 ```
+
+---
 
 ## 📄 Licença
 
