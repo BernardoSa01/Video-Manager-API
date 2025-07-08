@@ -195,7 +195,31 @@ server.put('/videos/:id', {
 })
 
 // Rota para DELEÇÃO de vídeos
-server.delete('/videos/:id', async (request, reply) => {
+server.delete('/videos/:id', {
+  schema: {
+    summary: 'Deleta um vídeo baseado em pesquisa por ID',
+    tags: ['Videos'],
+    params: {
+      type: 'object',
+      properties: {
+        id: { type: 'string' }
+      },
+      required: ['id']
+    },
+    response: {
+      204: {
+        description: 'Vídeo deletado com sucesso'
+      },
+      404: {
+        description: 'Vídeo não encontrado',
+        type: 'object',
+        properties: {
+          message: { type: 'string' }
+        }
+      }
+    }
+  }
+}, async (request, reply) => {
   const videoId = request.params.id 
 
   await database.delete(videoId)
