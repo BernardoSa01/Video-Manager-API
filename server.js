@@ -104,7 +104,38 @@ server.get('/videos', {
 })
 
 // Rota para VISUALIZAR um video específico por ID
-server.get('/videos/:id', async (request, reply) => {
+server.get('/videos/:id', {
+  schema: {
+    summary: 'Busca um vídeo específico por ID',
+    tags: ['Videos'],
+    params: {
+      type: 'object',
+      properties: {
+        id: { type: 'string'}
+      },
+      required: ['id']
+    },
+    response: {
+      200: {
+        description: 'Vídeo encontrado',
+        type: 'object',
+        properties: {
+          id: { type: 'string' },
+          title: { type: 'string' },
+          description: { type: 'string'},
+          duration: { type: 'integer' }
+        }
+      },
+      404: {
+        description: 'Vídeo não encontrado',
+        type: 'object',
+        properties: {
+          message: { type: 'string'}
+        }
+      }
+    }
+  }
+}, async (request, reply) => {
   const videoId = request.params.id
 
   const video = await database.findById(videoId)
