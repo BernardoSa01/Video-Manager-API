@@ -65,26 +65,43 @@ server.post('/videos', {
 })
 
 
-/*server.post('/videos', async (request, reply) => {
-  const { title, description, duration } = request.body
-
-  await database.create({
-    title,
-    description,
-    duration, 
-  })
-
-  return reply.status(201).send()
-})
-
 // Rota para VISUALIZAÇÃO de vídeos
-server.get('/videos', async (request) => {
+server.get('/videos', {
+  schema: {
+    summary: 'Visualiza os videos registrados na base de dados',
+    tags: ['Videos'],
+    querystring: {
+      type: 'object',
+      properties: {
+        search: {
+          type: 'string',
+          description: 'Texto para buscar por título ou descrição'
+        }
+      }
+    },
+    response: {
+      200: {
+        description: 'Lista de vídeos',
+        type: 'array', // Retorna uma lista
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', example: 'abc123'},
+            title: { type: 'string', example: 'Aprendendo Swagger'},
+            description: { type: 'string', example: 'Curso completo'},
+            duration: { type: 'integer', example: 120}
+          }
+        }
+      }
+    }
+  }
+}, async (request) => {
   const search = request.query.search
 
   const videos = await database.list(search)
 
   return videos
-})*/
+})
 
 // Rota para VISUALIZAR um video específico por ID
 server.get('/videos/:id', async (request, reply) => {
@@ -137,3 +154,16 @@ console.log('HTTP Server is running!')
 }
 
 bootstrap()
+
+
+/*server.post('/videos', async (request, reply) => {
+  const { title, description, duration } = request.body
+
+  await database.create({
+    title,
+    description,
+    duration, 
+  })
+
+  return reply.status(201).send()
+})*/
