@@ -130,7 +130,7 @@ server.get('/videos/:id', {
         description: 'Vídeo não encontrado',
         type: 'object',
         properties: {
-          message: { type: 'string'}
+          message: { type: 'string' }
         }
       }
     }
@@ -148,7 +148,40 @@ server.get('/videos/:id', {
 })
 
 // Rota para ATUALIZAÇÃO das informações de vídeos
-server.put('/videos/:id', async (request, reply) => {
+server.put('/videos/:id', {
+  schema: {
+    summary: 'Atualiza as informações de um vídeo específico, selecionado por ID',
+    tags: ['Videos'],
+    params: {
+      type: 'object',
+      properties: {
+        id: { type: 'string'}
+      }, 
+      required: ['id']
+    },
+    body: {
+      type: 'object',
+      required: ['title', 'description', 'duration'],
+      properties: {
+        title: { type: 'string' },
+        description: { type: 'string' },
+        duration: { type: 'integer' }
+      }
+    },
+    response: {
+      204: {
+        description: 'Vídeo atualizado com sucesso'
+      },
+      404: {
+        description: 'Vídeo não encontrado',
+        type: 'object',
+        properties: {
+          message: { type: 'string' }
+        }
+      }
+    }
+  }
+}, async (request, reply) => {
   const videoId = request.params.id
   const { title, description, duration } = request.body
   
